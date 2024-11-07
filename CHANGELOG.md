@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/fishpigbird/logseq-plugin-openai-api/compare/v1.0.0...v1.0.1) (2024-11-07)
+
+
+### Bug Fixes
+
+* 仅仅更新版本 ([4154dd7](https://github.com/fishpigbird/logseq-plugin-openai-api/commit/4154dd72ca95e98872e8738609d7c4e388f084e8))
+
 # 1.0.0 (2024-11-07)
 
 
