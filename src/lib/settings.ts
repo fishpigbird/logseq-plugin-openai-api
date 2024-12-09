@@ -39,6 +39,24 @@ export const settingsSchema: SettingSchemaDesc[] = [
       "Initial message that tells ChatGPT how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
   },
   {
+    key: "chatPrompt2",
+    type: "string",
+    default:
+      "Do not refer to yourself in your answers. Do not say as an AI language model...",
+    title: "OpenAI Chat Prompt",
+    description:
+      "Initial message that tells ChatGPT how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
+  },
+  {
+    key: "chatPrompt3",
+    type: "string",
+    default:
+      "Do not refer to yourself in your answers. Do not say as an AI language model...",
+    title: "OpenAI Chat Prompt",
+    description:
+      "Initial message that tells ChatGPT how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
+  },
+  {
     key: "openAITemperature",
     type: "number",
     default: 1.0,
@@ -102,9 +120,23 @@ export const settingsSchema: SettingSchemaDesc[] = [
     description: "",
   },
   {
-    key: "popupShortcut",
+    key: "shortcutBlock2",
     type: "string",
     default: "mod+g",
+    title: "Keyboard Shortcut for /gpt-block",
+    description: "",
+  },
+  {
+    key: "shortcutBlock3",
+    type: "string",
+    default: "mod+h",
+    title: "Keyboard Shortcut for /gpt-block",
+    description: "",
+  },
+  {
+    key: "popupShortcut",
+    type: "string",
+    default: "mod+shift+g",
     title: "Keyboard Shortcut for /gpt popup",
     description: "",
   },
@@ -113,7 +145,7 @@ export const settingsSchema: SettingSchemaDesc[] = [
 function unescapeNewlines(s: string) {
   return s.replace(/\\n/g, "\n");
 }
-
+//fix3
 export function getOpenaiSettings(): PluginOptions {
   const apiKey = logseq.settings!["openAIKey"];
   const completionEngine = logseq.settings!["openAICompletionEngine"];
@@ -125,6 +157,62 @@ export function getOpenaiSettings(): PluginOptions {
   const dalleStyle = logseq.settings!["dalleStyle"];
   const dalleQuality = logseq.settings!["dalleQuality"];
   const chatPrompt = logseq.settings!["chatPrompt"];
+  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  return {
+    apiKey,
+    completionEngine,
+    temperature,
+    maxTokens,
+    dalleImageSize,
+    dalleModel,
+    dalleQuality,
+    dalleStyle,
+    injectPrefix,
+    chatPrompt,
+    completionEndpoint,
+  };
+}
+
+export function getOpenaiSettings2(): PluginOptions {
+  const apiKey = logseq.settings!["openAIKey"];
+  const completionEngine = logseq.settings!["openAICompletionEngine"];
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const dalleImageSize = logseq.settings!["dalleImageSize"] as DalleImageSize;
+  const dalleModel = logseq.settings!["dalleModel"];
+  const dalleStyle = logseq.settings!["dalleStyle"];
+  const dalleQuality = logseq.settings!["dalleQuality"];
+  const chatPrompt = logseq.settings!["chatPrompt2"];
+  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  return {
+    apiKey,
+    completionEngine,
+    temperature,
+    maxTokens,
+    dalleImageSize,
+    dalleModel,
+    dalleQuality,
+    dalleStyle,
+    injectPrefix,
+    chatPrompt,
+    completionEndpoint,
+  };
+}
+
+
+
+export function getOpenaiSettings3(): PluginOptions {
+  const apiKey = logseq.settings!["openAIKey"];
+  const completionEngine = logseq.settings!["openAICompletionEngine"];
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const dalleImageSize = logseq.settings!["dalleImageSize"] as DalleImageSize;
+  const dalleModel = logseq.settings!["dalleModel"];
+  const dalleStyle = logseq.settings!["dalleStyle"];
+  const dalleQuality = logseq.settings!["dalleQuality"];
+  const chatPrompt = logseq.settings!["chatPrompt3"];
   const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
   return {
     apiKey,
