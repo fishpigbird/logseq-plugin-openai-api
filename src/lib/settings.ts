@@ -17,9 +17,9 @@ export const settingsSchema: SettingSchemaDesc[] = [
   {
     key: "openAICompletionEngine",
     type: "string",
-    default: "gpt-3.5-turbo",
+    default: "gemini-2.0-flash-exp",
     title: "OpenAI Completion Engine",
-    description: "See Engines in OpenAI docs.",
+    description: "Gemini yyds！",
   },
   {
     key: "chatCompletionEndpoint",
@@ -27,7 +27,7 @@ export const settingsSchema: SettingSchemaDesc[] = [
     default: "https://api.openai.com/v1",
     title: "OpenAI API Completion Endpoint",
     description:
-      "The endpoint to use for OpenAI API completion requests. You shouldn't need to change this.",
+      "https://api.openai.com/v1",
   },
   {
     key: "chatPrompt",
@@ -36,25 +36,70 @@ export const settingsSchema: SettingSchemaDesc[] = [
       "Do not refer to yourself in your answers. Do not say as an AI language model...",
     title: "OpenAI Chat Prompt",
     description:
-      "Initial message that tells ChatGPT how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
+      "have fun",
   },
   {
-    key: "chatPrompt2",
+    key: "chatPromptH",
     type: "string",
     default:
       "Do not refer to yourself in your answers. Do not say as an AI language model...",
     title: "OpenAI Chat Prompt",
     description:
-      "Initial message that tells ChatGPT how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
+      "have fun",
   },
   {
-    key: "chatPrompt3",
+    key: "chatPromptG",
     type: "string",
     default:
       "Do not refer to yourself in your answers. Do not say as an AI language model...",
     title: "OpenAI Chat Prompt",
     description:
-      "Initial message that tells ChatGPT how to answer. Only used for gpt-3.5. See https://platform.openai.com/docs/guides/chat/introduction for more info.",
+      "have fun",
+  },
+  {
+    key: "chatPromptT",
+    type: "string",
+    default:
+      "Do not refer to yourself in your answers. Do not say as an AI language model...",
+    title: "OpenAI Chat Prompt",
+    description:
+      "have fun",
+  },
+  {
+    key: "chatPromptY",
+    type: "string",
+    default:
+      "Do not refer to yourself in your answers. Do not say as an AI language model...",
+    title: "OpenAI Chat Prompt",
+    description:
+      "have fun",
+  },
+  {
+    key: "chatPromptU",
+    type: "string",
+    default:
+      "Do not refer to yourself in your answers. Do not say as an AI language model...",
+    title: "OpenAI Chat Prompt",
+    description:
+      "have fun",
+  },
+  {
+    key: "chatPromptI",
+    type: "string",
+    default:
+      "Do not refer to yourself in your answers. Do not say as an AI language model...",
+    title: "OpenAI Chat Prompt",
+    description:
+      "have fun",
+  },
+  {
+    key: "chatPromptO",
+    type: "string",
+    default:
+      "Do not refer to yourself in your answers. Do not say as an AI language model...",
+    title: "OpenAI Chat Prompt",
+    description:
+      "have fun",
   },
   {
     key: "openAITemperature",
@@ -120,16 +165,51 @@ export const settingsSchema: SettingSchemaDesc[] = [
     description: "",
   },
   {
-    key: "shortcutBlock2",
+    key: "shortcutBlockG",
     type: "string",
     default: "mod+g",
     title: "Keyboard Shortcut for /gpt-block",
     description: "",
   },
   {
-    key: "shortcutBlock3",
+    key: "shortcutBlockH",
     type: "string",
     default: "mod+h",
+    title: "Keyboard Shortcut for /gpt-block",
+    description: "",
+  },
+  {
+    key: "shortcutBlockT",
+    type: "string",
+    default: "mod+t",
+    title: "Keyboard Shortcut for /gpt-block",
+    description: "",
+  },
+  {
+    key: "shortcutBlockY",
+    type: "string",
+    default: "mod+y",
+    title: "Keyboard Shortcut for /gpt-block",
+    description: "",
+  },
+  {
+    key: "shortcutBlockU",
+    type: "string",
+    default: "mod+u",
+    title: "Keyboard Shortcut for /gpt-block",
+    description: "",
+  },
+  {
+    key: "shortcutBlockI",
+    type: "string",
+    default: "mod+i",
+    title: "Keyboard Shortcut for /gpt-block",
+    description: "",
+  },
+  {
+    key: "shortcutBlockO",
+    type: "string",
+    default: "mod+o",
     title: "Keyboard Shortcut for /gpt-block",
     description: "",
   },
@@ -173,7 +253,7 @@ export function getOpenaiSettings(): PluginOptions {
   };
 }
 
-export function getOpenaiSettings2(): PluginOptions {
+export function getOpenaiSettingsH(): PluginOptions {
   const apiKey = logseq.settings!["openAIKey"];
   const completionEngine = logseq.settings!["openAICompletionEngine"];
   const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
@@ -183,7 +263,7 @@ export function getOpenaiSettings2(): PluginOptions {
   const dalleModel = logseq.settings!["dalleModel"];
   const dalleStyle = logseq.settings!["dalleStyle"];
   const dalleQuality = logseq.settings!["dalleQuality"];
-  const chatPrompt = logseq.settings!["chatPrompt2"];
+  const chatPrompt = logseq.settings!["chatPromptH"];
   const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
   return {
     apiKey,
@@ -202,7 +282,7 @@ export function getOpenaiSettings2(): PluginOptions {
 
 
 
-export function getOpenaiSettings3(): PluginOptions {
+export function getOpenaiSettingsG(): PluginOptions {
   const apiKey = logseq.settings!["openAIKey"];
   const completionEngine = logseq.settings!["openAICompletionEngine"];
   const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
@@ -212,7 +292,139 @@ export function getOpenaiSettings3(): PluginOptions {
   const dalleModel = logseq.settings!["dalleModel"];
   const dalleStyle = logseq.settings!["dalleStyle"];
   const dalleQuality = logseq.settings!["dalleQuality"];
-  const chatPrompt = logseq.settings!["chatPrompt3"];
+  const chatPrompt = logseq.settings!["chatPromptG"];
+  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  return {
+    apiKey,
+    completionEngine,
+    temperature,
+    maxTokens,
+    dalleImageSize,
+    dalleModel,
+    dalleQuality,
+    dalleStyle,
+    injectPrefix,
+    chatPrompt,
+    completionEndpoint,
+  };
+}
+
+
+export function getOpenaiSettingsT(): PluginOptions {
+  const apiKey = logseq.settings!["openAIKey"];
+  const completionEngine = logseq.settings!["openAICompletionEngine"];
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const dalleImageSize = logseq.settings!["dalleImageSize"] as DalleImageSize;
+  const dalleModel = logseq.settings!["dalleModel"];
+  const dalleStyle = logseq.settings!["dalleStyle"];
+  const dalleQuality = logseq.settings!["dalleQuality"];
+  const chatPrompt = logseq.settings!["chatPromptT"];
+  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  return {
+    apiKey,
+    completionEngine,
+    temperature,
+    maxTokens,
+    dalleImageSize,
+    dalleModel,
+    dalleQuality,
+    dalleStyle,
+    injectPrefix,
+    chatPrompt,
+    completionEndpoint,
+  };
+}
+export function getOpenaiSettingsY(): PluginOptions {
+  const apiKey = logseq.settings!["openAIKey"];
+  const completionEngine = logseq.settings!["openAICompletionEngine"];
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const dalleImageSize = logseq.settings!["dalleImageSize"] as DalleImageSize;
+  const dalleModel = logseq.settings!["dalleModel"];
+  const dalleStyle = logseq.settings!["dalleStyle"];
+  const dalleQuality = logseq.settings!["dalleQuality"];
+  const chatPrompt = logseq.settings!["chatPromptY"];
+  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  return {
+    apiKey,
+    completionEngine,
+    temperature,
+    maxTokens,
+    dalleImageSize,
+    dalleModel,
+    dalleQuality,
+    dalleStyle,
+    injectPrefix,
+    chatPrompt,
+    completionEndpoint,
+  };
+}
+export function getOpenaiSettingsU(): PluginOptions {
+  const apiKey = logseq.settings!["openAIKey"];
+  const completionEngine = logseq.settings!["openAICompletionEngine"];
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const dalleImageSize = logseq.settings!["dalleImageSize"] as DalleImageSize;
+  const dalleModel = logseq.settings!["dalleModel"];
+  const dalleStyle = logseq.settings!["dalleStyle"];
+  const dalleQuality = logseq.settings!["dalleQuality"];
+  const chatPrompt = logseq.settings!["chatPromptU"];
+  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  return {
+    apiKey,
+    completionEngine,
+    temperature,
+    maxTokens,
+    dalleImageSize,
+    dalleModel,
+    dalleQuality,
+    dalleStyle,
+    injectPrefix,
+    chatPrompt,
+    completionEndpoint,
+  };
+}
+export function getOpenaiSettingsI(): PluginOptions {
+  const apiKey = logseq.settings!["openAIKey"];
+  const completionEngine = logseq.settings!["openAICompletionEngine"];
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const dalleImageSize = logseq.settings!["dalleImageSize"] as DalleImageSize;
+  const dalleModel = logseq.settings!["dalleModel"];
+  const dalleStyle = logseq.settings!["dalleStyle"];
+  const dalleQuality = logseq.settings!["dalleQuality"];
+  const chatPrompt = logseq.settings!["chatPromptI"];
+  const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
+  return {
+    apiKey,
+    completionEngine,
+    temperature,
+    maxTokens,
+    dalleImageSize,
+    dalleModel,
+    dalleQuality,
+    dalleStyle,
+    injectPrefix,
+    chatPrompt,
+    completionEndpoint,
+  };
+}
+export function getOpenaiSettingsO(): PluginOptions {
+  const apiKey = logseq.settings!["openAIKey"];
+  const completionEngine = logseq.settings!["openAICompletionEngine"];
+  const injectPrefix = unescapeNewlines(logseq.settings!["injectPrefix"]);
+  const temperature = Number.parseFloat(logseq.settings!["openAITemperature"]);
+  const maxTokens = Number.parseInt(logseq.settings!["openAIMaxTokens"]);
+  const dalleImageSize = logseq.settings!["dalleImageSize"] as DalleImageSize;
+  const dalleModel = logseq.settings!["dalleModel"];
+  const dalleStyle = logseq.settings!["dalleStyle"];
+  const dalleQuality = logseq.settings!["dalleQuality"];
+  const chatPrompt = logseq.settings!["chatPromptO"];
   const completionEndpoint = logseq.settings!["chatCompletionEndpoint"];
   return {
     apiKey,

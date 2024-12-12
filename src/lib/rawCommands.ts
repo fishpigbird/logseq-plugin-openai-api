@@ -1,7 +1,7 @@
 import { IHookEvent } from "@logseq/libs/dist/LSPlugin.user";
 import { getAudioFile, getPageContentFromBlock, saveDalleImage } from "./logseq";
 import { OpenAIOptions, dallE, whisper, openAIWithStream } from "./openai";
-import { getOpenaiSettings,getOpenaiSettings2,getOpenaiSettings3 } from "./settings";
+import { getOpenaiSettings,getOpenaiSettingsH,getOpenaiSettingsG,getOpenaiSettingsT,getOpenaiSettingsY,getOpenaiSettingsU,getOpenaiSettingsI,getOpenaiSettingsO } from "./settings";
 
 function handleOpenAIError(e: any) {
   if (
@@ -109,8 +109,8 @@ export async function runGptBlock(b: IHookEvent) {
   }
 }
 
-export async function runGptBlock2(b: IHookEvent) {
-  const openAISettings = getOpenaiSettings2();
+export async function runGptBlockH(b: IHookEvent) {
+  const openAISettings = getOpenaiSettingsH();
   validateSettings(openAISettings);
 
   const currentBlock = await logseq.Editor.getBlock(b.uuid);
@@ -151,8 +151,218 @@ export async function runGptBlock2(b: IHookEvent) {
   }
 }
 
-export async function runGptBlock3(b: IHookEvent) {
-  const openAISettings = getOpenaiSettings3();
+export async function runGptBlockG(b: IHookEvent) {
+  const openAISettings = getOpenaiSettingsG();
+  validateSettings(openAISettings);
+
+  const currentBlock = await logseq.Editor.getBlock(b.uuid);
+  if (!currentBlock) {
+    console.error("No current block");
+    return;
+  }
+
+  if (currentBlock.content.trim().length === 0) {
+    logseq.App.showMsg("Empty Content", "warning");
+    console.warn("Blank page");
+    return;
+  }
+
+  try {
+    let result = "";
+    const insertBlock = await logseq.Editor.insertBlock(currentBlock.uuid, result, {
+      sibling: false,
+    });
+
+    if(openAISettings.injectPrefix && result.length == 0) {
+      result = openAISettings.injectPrefix + result;
+    }
+
+    await openAIWithStream(currentBlock.content, openAISettings,  async (content: string) => {
+      result += content || "";
+      if(null != insertBlock) {
+         await logseq.Editor.updateBlock(insertBlock.uuid, result);
+      }
+    }, () => {});
+
+    if (!result) {
+      logseq.App.showMsg("No OpenAI content" , "warning");
+      return;
+    }
+  } catch (e: any) {
+    handleOpenAIError(e);
+  }
+}
+
+export async function runGptBlockT(b: IHookEvent) {
+  const openAISettings = getOpenaiSettingsT();
+  validateSettings(openAISettings);
+
+  const currentBlock = await logseq.Editor.getBlock(b.uuid);
+  if (!currentBlock) {
+    console.error("No current block");
+    return;
+  }
+
+  if (currentBlock.content.trim().length === 0) {
+    logseq.App.showMsg("Empty Content", "warning");
+    console.warn("Blank page");
+    return;
+  }
+
+  try {
+    let result = "";
+    const insertBlock = await logseq.Editor.insertBlock(currentBlock.uuid, result, {
+      sibling: false,
+    });
+
+    if(openAISettings.injectPrefix && result.length == 0) {
+      result = openAISettings.injectPrefix + result;
+    }
+
+    await openAIWithStream(currentBlock.content, openAISettings,  async (content: string) => {
+      result += content || "";
+      if(null != insertBlock) {
+         await logseq.Editor.updateBlock(insertBlock.uuid, result);
+      }
+    }, () => {});
+
+    if (!result) {
+      logseq.App.showMsg("No OpenAI content" , "warning");
+      return;
+    }
+  } catch (e: any) {
+    handleOpenAIError(e);
+  }
+}
+
+export async function runGptBlockY(b: IHookEvent) {
+  const openAISettings = getOpenaiSettingsY();
+  validateSettings(openAISettings);
+
+  const currentBlock = await logseq.Editor.getBlock(b.uuid);
+  if (!currentBlock) {
+    console.error("No current block");
+    return;
+  }
+
+  if (currentBlock.content.trim().length === 0) {
+    logseq.App.showMsg("Empty Content", "warning");
+    console.warn("Blank page");
+    return;
+  }
+
+  try {
+    let result = "";
+    const insertBlock = await logseq.Editor.insertBlock(currentBlock.uuid, result, {
+      sibling: false,
+    });
+
+    if(openAISettings.injectPrefix && result.length == 0) {
+      result = openAISettings.injectPrefix + result;
+    }
+
+    await openAIWithStream(currentBlock.content, openAISettings,  async (content: string) => {
+      result += content || "";
+      if(null != insertBlock) {
+         await logseq.Editor.updateBlock(insertBlock.uuid, result);
+      }
+    }, () => {});
+
+    if (!result) {
+      logseq.App.showMsg("No OpenAI content" , "warning");
+      return;
+    }
+  } catch (e: any) {
+    handleOpenAIError(e);
+  }
+}
+
+export async function runGptBlockU(b: IHookEvent) {
+  const openAISettings = getOpenaiSettingsU();
+  validateSettings(openAISettings);
+
+  const currentBlock = await logseq.Editor.getBlock(b.uuid);
+  if (!currentBlock) {
+    console.error("No current block");
+    return;
+  }
+
+  if (currentBlock.content.trim().length === 0) {
+    logseq.App.showMsg("Empty Content", "warning");
+    console.warn("Blank page");
+    return;
+  }
+
+  try {
+    let result = "";
+    const insertBlock = await logseq.Editor.insertBlock(currentBlock.uuid, result, {
+      sibling: false,
+    });
+
+    if(openAISettings.injectPrefix && result.length == 0) {
+      result = openAISettings.injectPrefix + result;
+    }
+
+    await openAIWithStream(currentBlock.content, openAISettings,  async (content: string) => {
+      result += content || "";
+      if(null != insertBlock) {
+         await logseq.Editor.updateBlock(insertBlock.uuid, result);
+      }
+    }, () => {});
+
+    if (!result) {
+      logseq.App.showMsg("No OpenAI content" , "warning");
+      return;
+    }
+  } catch (e: any) {
+    handleOpenAIError(e);
+  }
+}
+
+export async function runGptBlockI(b: IHookEvent) {
+  const openAISettings = getOpenaiSettingsI();
+  validateSettings(openAISettings);
+
+  const currentBlock = await logseq.Editor.getBlock(b.uuid);
+  if (!currentBlock) {
+    console.error("No current block");
+    return;
+  }
+
+  if (currentBlock.content.trim().length === 0) {
+    logseq.App.showMsg("Empty Content", "warning");
+    console.warn("Blank page");
+    return;
+  }
+
+  try {
+    let result = "";
+    const insertBlock = await logseq.Editor.insertBlock(currentBlock.uuid, result, {
+      sibling: false,
+    });
+
+    if(openAISettings.injectPrefix && result.length == 0) {
+      result = openAISettings.injectPrefix + result;
+    }
+
+    await openAIWithStream(currentBlock.content, openAISettings,  async (content: string) => {
+      result += content || "";
+      if(null != insertBlock) {
+         await logseq.Editor.updateBlock(insertBlock.uuid, result);
+      }
+    }, () => {});
+
+    if (!result) {
+      logseq.App.showMsg("No OpenAI content" , "warning");
+      return;
+    }
+  } catch (e: any) {
+    handleOpenAIError(e);
+  }
+}
+
+export async function runGptBlockO(b: IHookEvent) {
+  const openAISettings = getOpenaiSettingsO();
   validateSettings(openAISettings);
 
   const currentBlock = await logseq.Editor.getBlock(b.uuid);

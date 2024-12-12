@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import { Command, LogseqAI } from "./ui/LogseqAI";
 import { loadUserCommands, loadBuiltInCommands } from "./lib/prompts";
 import { getOpenaiSettings, settingsSchema } from "./lib/settings";
-import { runDalleBlock, runGptBlock,runGptBlock2,runGptBlock3, runGptPage, runWhisper } from "./lib/rawCommands";
+import { runDalleBlock, runGptBlock,runGptBlockH,runGptBlockG, runGptBlockT ,runGptBlockY ,runGptBlockU ,runGptBlockI ,runGptBlockO ,runGptPage, runWhisper } from "./lib/rawCommands";
 import { BlockEntity } from "@logseq/libs/dist/LSPlugin.user";
 import { useImmer } from 'use-immer';
 
@@ -182,18 +182,70 @@ const LogseqApp = () => {
       );
     }
 
-    if (logseq.settings!["shortcutBlock2"]) {
+    if (logseq.settings!["shortcutBlockH"]) {
       logseq.App.registerCommandShortcut(
-        { "binding": logseq.settings!["shortcutBlock2"] },
-        runGptBlock2
+        { "binding": logseq.settings!["shortcutBlockH"] },
+        runGptBlockH
       );
     }
-    if (logseq.settings!["shortcutBlock3"]) {
+    if (logseq.settings!["shortcutBlockG"]) {
       logseq.App.registerCommandShortcut(
-        { "binding": logseq.settings!["shortcutBlock3"] },
-        runGptBlock3
+        { "binding": logseq.settings!["shortcutBlockG"] },
+        runGptBlockG
       );
     }
+
+    if (logseq.settings!["shortcutBlockT"]) {
+      logseq.App.registerCommandShortcut(
+        { "binding": logseq.settings!["shortcutBlockT"] },
+        runGptBlockT
+      );
+    }
+
+    if (logseq.settings!["shortcutBlockY"]) {
+      logseq.App.registerCommandShortcut(
+        { "binding": logseq.settings!["shortcutBlockY"] },
+        runGptBlockY
+      );
+    }
+
+    if (logseq.settings!["shortcutBlockU"]) {
+      logseq.App.registerCommandShortcut(
+        { "binding": logseq.settings!["shortcutBlockU"] },
+        runGptBlockU
+      );
+    }
+
+    if (logseq.settings!["shortcutBlockI"]) {
+      logseq.App.registerCommandShortcut(
+        { "binding": logseq.settings!["shortcutBlockI"] },
+        runGptBlockI
+      );
+    }
+
+    if (logseq.settings!["shortcutBlockO"]) {
+      logseq.App.registerCommandShortcut(
+        { "binding": logseq.settings!["shortcutBlockO"] },
+        runGptBlockO
+      );
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
