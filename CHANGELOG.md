@@ -1,3 +1,10 @@
+## [1.14.4](https://github.com/fishpigbird/logseq-plugin-openai-api/compare/v1.14.3...v1.14.4) (2024-12-12)
+
+
+### Bug Fixes
+
+* 8 prompt custom ([462790e](https://github.com/fishpigbird/logseq-plugin-openai-api/commit/462790e347107b406550c5c08898615e37c3a11e))
+
 ## [1.14.3](https://github.com/fishpigbird/logseq-plugin-openai-api/compare/v1.14.2...v1.14.3) (2024-12-09)
 
 
